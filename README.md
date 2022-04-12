@@ -18,3 +18,6 @@ You could modify the dot files to add content to the graphs
 
 To include in a notebook use md-sandbox and wrap the svg in a <div> tag
   I remove the doctype and start with the <svg> tag
+
+
+Let me know if you have any questions
