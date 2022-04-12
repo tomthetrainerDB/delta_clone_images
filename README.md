@@ -14,3 +14,7 @@ Will generate a png, you can add height and width and the like
 
 ```dot -Tsvg shallow_clone.dot > shallow_clone.svg``` will generate an svg
 You could modify the dot files to add content to the graphs
+
+
+To include in a notebook use md-sandbox and wrap the svg in a <div> tag
+  I remove the doctype and start with the <svg> tag
