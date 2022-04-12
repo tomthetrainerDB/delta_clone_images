@@ -1,0 +1,29 @@
+digraph {
+    compound=true;# Need this to have links between nodes in subgraphs
+    rankdir=LR;  # Arranges things Left Right
+    labelloc = t;# Puts labels on top
+    node [ shape=square, style=filled, color = "#98102A", fillcolor = "#FFAB00"];
+  label="Deep Clone"; # labels whole image
+
+
+  subgraph cluster_source_table {
+       compound=true;
+    label="Source Table";
+
+    sourcelog [label="Delta Log"];
+    sourcefiles [label="Parquet Files"];
+  }
+
+
+  subgraph cluster_cloned_table {
+      labelloc=t;
+       compound=true;
+    label="Cloned Table";
+
+    destlog [label="Delta Log"];
+    destfiles [label = "Parquet Files"]
+    sourcelog->destlog;
+    sourcefiles->destfiles;
+  }
+
+}

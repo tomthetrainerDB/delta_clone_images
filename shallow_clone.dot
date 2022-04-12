@@ -1,0 +1,41 @@
+# To render as svg run this
+# dot -Tsvg deep_clone.dot > deep_clone.svg
+
+// Databricks color pallete
+// Color Palette
+        // "#1B3139" = Dark Navy
+        // "#FF3621" = Innovation Orange
+        // "#1C4856" = Deep Blue
+        // "#00B379" =  Jade
+        // "#FFAB00" = GoldenRod
+        // "#98102A" = Maroon
+        // style = filled = full box color fill
+        // node [style =filled]; Border color
+
+
+digraph {
+    compound=true; # Need this to have links between nodes in subgraphs
+    rankdir=LR;    # Arranges things Left Right 
+    node [ shape=square, style=filled, color = "#98102A", fillcolor = "#FFAB00"];
+  label="Shallow Clone";
+  labelloc = t ; # Puts labels on top
+
+  subgraph cluster_source_table {
+       compound=true;
+       label="Source Table";
+
+       ab [label="Delta Log"]; # format node_name [node_info]
+       ac [label="Parquet Files"]; # format node_name [node_info]
+  }
+
+
+  subgraph cluster_cloned_table {
+      labelloc=t;
+       compound=true;
+    label="Cloned Table"
+
+    bd [label="Delta Log"];
+    ab->bd; # node connection syntax
+  }
+
+}
